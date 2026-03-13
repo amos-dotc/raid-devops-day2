@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { transformUserData } from '../index';
+import { extractCompanyDomain, transformUserData } from '../index';
 
 describe('transformUserData', () => {
   it('should transform user object by splitting full name into first and last name', () => {
@@ -62,3 +62,13 @@ describe('transformUserData', () => {
     expect(result).toHaveProperty('email');
   });
 });
+
+describe('extractCompanyDomain', () => {
+  it('should correctly extract company domain', () => {
+    const mockEmail = 'test@example.com';
+
+    const result = extractCompanyDomain(mockEmail);
+    
+    expect(result).toBe('example.com');
+  })
+})
